@@ -1,0 +1,1420 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naturix Foods - Earthy Minimalist • Taste of India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1F3D2C;
+            background: #FEFEFE;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1F3D2C 0%, #5A705C 100%);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(226, 185, 63, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #E2B93F;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #E9DFC5;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #E2B93F;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E9DFC5 0%, #F5F1E8 100%);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1F3D2C;
+            margin-bottom: 1rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: #E2B93F;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #1F3D2C;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #E2B93F, #D1C84A);
+            color: #1F3D2C;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(226, 185, 63, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(226, 185, 63, 0.4);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 6rem 2rem;
+            background: #FEFEFE;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #1F3D2C;
+            margin-bottom: 3rem;
+        }
+
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-btn {
+            background: rgba(233, 223, 197, 0.3);
+            border: 2px solid transparent;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #1F3D2C;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #E2B93F;
+            color: #1F3D2C;
+            border-color: #E2B93F;
+            transform: translateY(-2px);
+        }
+
+        .category-content {
+            display: none;
+        }
+
+        .category-content.active {
+            display: block;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #1F3D2C;
+            margin-bottom: 1rem;
+        }
+
+        .category-header p {
+            color: #1F3D2C;
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-item {
+            background: #FEFEFE;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(233, 223, 197, 0.5);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: #E2B93F;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1F3D2C;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-item p {
+            color: #1F3D2C;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #F5F1E8 0%, #E9DFC5 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1F3D2C;
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            color: #1F3D2C;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .nature-illustration {
+            width: 300px;
+            height: 300px;
+            background: #E9DFC5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Values Section */
+        .values {
+            padding: 5rem 2rem;
+            background: #E9DFC5;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #E2B93F, #D1C84A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .value-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1F3D2C;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: #1F3D2C;
+            color: #E9DFC5;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-bottom: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #E2B93F;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem;
+            background: rgba(233, 223, 197, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(233, 223, 197, 0.2);
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #E2B93F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1F3D2C;
+        }
+
+        .contact-item div {
+            text-align: center;
+        }
+
+        .contact-item strong {
+            color: #E2B93F;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #E9DFC5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #E2B93F;
+        }
+
+        .team-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #E2B93F;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem;
+            background: rgba(233, 223, 197, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(233, 223, 197, 0.2);
+            text-align: center;
+        }
+
+        .team-member-icon {
+            width: 60px;
+            height: 60px;
+            background: #E2B93F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #1F3D2C;
+        }
+
+        .team-member h4 {
+            color: #E9DFC5;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: #E2B93F;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member a {
+            color: #E9DFC5;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .team-member a:hover {
+            color: #E2B93F;
+        }
+
+        .certifications-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(233, 223, 197, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(233, 223, 197, 0.2);
+        }
+
+        .certifications-box p {
+            color: #E2B93F;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .certifications-text {
+            color: #E9DFC5;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .exporter-badge {
+            color: #E9DFC5;
+            font-weight: 600;
+            display: block;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1F3D2C;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(233, 223, 197, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #E2B93F;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: #E9DFC5;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(233, 223, 197, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E9DFC5;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #E2B93F;
+            color: #1F3D2C;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(233, 223, 197, 0.2);
+            padding-top: 1rem;
+            color: rgba(233, 223, 197, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nature-illustration {
+                width: 200px;
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .product-categories {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .category-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+                padding: 1rem 1.5rem;
+            }
+
+            .category-header h3 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-item {
+                padding: 1.2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card,
+        .value-item {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .product-card:nth-child(2) { animation-delay: 0.1s; }
+        .product-card:nth-child(3) { animation-delay: 0.2s; }
+        .value-item:nth-child(2) { animation-delay: 0.1s; }
+        .value-item:nth-child(3) { animation-delay: 0.2s; }
+        .value-item:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header class="header">
+   <div class="nav-container">
+    <div class="logo">
+     <div class="logo-icon">
+      🌿
+     </div>
+     <div class="logo-text">
+      Naturix Foods
+     </div>
+    </div>
+    <nav>
+     <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header><!-- Hero Section -->
+  <section id="home" class="hero">
+   <div class="hero-content">
+    <h1>Naturix Foods</h1>
+    <div class="hero-tagline">
+     Earthy Minimalist • Taste of India
+    </div>
+    <p class="hero-description">Experience the pure essence of nature with our premium dehydrated vegetables, organic cow dung fertilizers, and eco-friendly leaf plates. Bringing you the authentic taste and natural goodness from farm to table.</p><a href="#products" class="cta-button">Explore Our Products</a>
+   </div>
+  </section><!-- Products Section -->
+  <section id="products" class="products">
+   <div class="container">
+    <h2 class="section-title">Our Natural Products</h2><!-- Product Categories Navigation -->
+    <div class="product-categories"><button class="category-btn active" data-category="dehydrated">🥕 Dehydrated Vegetables</button> <button class="category-btn" data-category="herbs">🌿 Dried Leaves &amp; Herbs</button> <button class="category-btn" data-category="spray">🍅 Spray Dried Powder</button> <button class="category-btn" data-category="seasoning">🌶️ Seasoning Masala</button> <button class="category-btn" data-category="seeds">🌾 Seeds &amp; Spice Powders</button> <button class="category-btn" data-category="organic">🌱 Organic Products</button>
+    </div><!-- Product Content Areas -->
+    <div class="product-content"><!-- Dehydrated Vegetables -->
+     <div class="category-content active" id="dehydrated">
+      <div class="category-header">
+       <h3>Dehydrated Vegetables</h3>
+       <p>Premium quality dehydrated vegetables that retain original flavor and nutrition</p>
+      </div>
+      <div class="products-grid">
+       <div class="product-item">
+        <div class="product-icon">
+         🥔
+        </div>
+        <h4>Potato Flakes &amp; Powder</h4>
+        <p>Premium dehydrated potato in flakes and powder form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥭
+        </div>
+        <h4>Amchur Flakes &amp; Powder</h4>
+        <p>Tangy dried mango powder for authentic Indian taste</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🧅
+        </div>
+        <h4>Onion Flakes &amp; Powder</h4>
+        <p>Dehydrated onions in multiple forms - minced, chopped, fried</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🧄
+        </div>
+        <h4>Garlic Flakes &amp; Powder</h4>
+        <p>Fresh garlic dehydrated to perfection</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥕
+        </div>
+        <h4>Beetroot Flakes &amp; Powder</h4>
+        <p>Nutrient-rich beetroot in convenient dried form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌶️
+        </div>
+        <h4>Green Chilly Flakes &amp; Powder</h4>
+        <p>Spicy green chilies dried for long-lasting heat</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥕
+        </div>
+        <h4>Carrot Flakes &amp; Powder</h4>
+        <p>Sweet and nutritious carrot in dehydrated form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥬
+        </div>
+        <h4>Cabbage Flakes &amp; Powder</h4>
+        <p>Crunchy cabbage preserved through dehydration</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥒
+        </div>
+        <h4>Bitter Gourd Flakes &amp; Powder</h4>
+        <p>Healthy bitter gourd for medicinal benefits</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥒
+        </div>
+        <h4>Bottle Gourd Flakes &amp; Powder</h4>
+        <p>Nutritious bottle gourd in convenient dried form</p>
+       </div>
+      </div>
+     </div><!-- Dried Leaves & Herbs -->
+     <div class="category-content" id="herbs">
+      <div class="category-header">
+       <h3>Dried Leaves &amp; Herbs</h3>
+       <p>Aromatic herbs and leaves that add authentic flavors to your dishes</p>
+      </div>
+      <div class="products-grid">
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Kasuri Methi</h4>
+        <p>Dried fenugreek leaves with distinctive aroma</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Mint Leaves &amp; Powder</h4>
+        <p>Fresh mint preserved for cooling flavor</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Coriander Leaves &amp; Powder</h4>
+        <p>Essential herb for Indian cuisine</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Dill Weed</h4>
+        <p>Delicate herb with unique flavor profile</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥬
+        </div>
+        <h4>Spinach Leaves &amp; Powder</h4>
+        <p>Iron-rich spinach in dried form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍃
+        </div>
+        <h4>Curry Leaves &amp; Powder</h4>
+        <p>Authentic South Indian flavoring</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Moringa Leaves &amp; Powder</h4>
+        <p>Superfood with exceptional nutritional value</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Oregano / Rosemary</h4>
+        <p>Mediterranean herbs for international cuisine</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Basil / Thymes</h4>
+        <p>Aromatic herbs for gourmet cooking</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Parsley</h4>
+        <p>Fresh parsley for garnishing and flavor</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Mix Herbs</h4>
+        <p>Carefully blended herb combinations</p>
+       </div>
+      </div>
+     </div><!-- Spray Dried Powder -->
+     <div class="category-content" id="spray">
+      <div class="category-header">
+       <h3>Spray Dried Powder</h3>
+       <p>Fruit and vegetable powders made using advanced spray drying technology</p>
+      </div>
+      <div class="products-grid">
+       <div class="product-item">
+        <div class="product-icon">
+         🍅
+        </div>
+        <h4>Tomato Powder</h4>
+        <p>Rich tomato flavor in convenient powder form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥭
+        </div>
+        <h4>Mango Powder</h4>
+        <p>Sweet and tangy mango essence</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍋
+        </div>
+        <h4>Lemon Powder</h4>
+        <p>Zesty lemon flavor for instant freshness</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍎
+        </div>
+        <h4>Pomegranate Powder</h4>
+        <p>Antioxidant-rich pomegranate in powder form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌶️
+        </div>
+        <h4>Tamarind Powder</h4>
+        <p>Tangy tamarind for authentic Indian dishes</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍓
+        </div>
+        <h4>Strawberry Powder</h4>
+        <p>Sweet strawberry flavor for desserts</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍎
+        </div>
+        <h4>Apple Powder</h4>
+        <p>Natural apple sweetness in powder form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍌
+        </div>
+        <h4>Banana Powder</h4>
+        <p>Nutritious banana powder for health drinks</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍇
+        </div>
+        <h4>Litchi Powder</h4>
+        <p>Exotic litchi flavor in convenient form</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍊
+        </div>
+        <h4>Orange Powder</h4>
+        <p>Citrusy orange flavor for beverages</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍍
+        </div>
+        <h4>Pineapple Powder</h4>
+        <p>Tropical pineapple taste in powder form</p>
+       </div>
+      </div>
+     </div><!-- Seasoning Masala -->
+     <div class="category-content" id="seasoning">
+      <div class="category-header">
+       <h3>Seasoning Masala</h3>
+       <p>Specially crafted seasoning blends for snacks and international cuisines</p>
+      </div>
+      <div class="products-grid">
+       <div class="product-item">
+        <div class="product-icon">
+         🍜
+        </div>
+        <h4>Noodles Seasoning</h4>
+        <p>Perfect blend for instant noodles</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌽
+        </div>
+        <h4>Kurkure Seasoning</h4>
+        <p>Crunchy snack seasoning blend</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍅
+        </div>
+        <h4>Tangy Tomato Seasoning</h4>
+        <p>Zesty tomato flavor for snacks</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥢
+        </div>
+        <h4>Soyastick Seasoning</h4>
+        <p>Asian-inspired seasoning blend</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥟
+        </div>
+        <h4>Manchurian Seasoning</h4>
+        <p>Indo-Chinese flavor combination</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌶️
+        </div>
+        <h4>Tikha Tadka Seasoning</h4>
+        <p>Spicy Indian masala blend</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Mint Seasoning</h4>
+        <p>Refreshing mint flavor seasoning</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🧄
+        </div>
+        <h4>Garlic Seasoning</h4>
+        <p>Rich garlic flavor enhancer</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🧀
+        </div>
+        <h4>Cheese Seasoning</h4>
+        <p>Creamy cheese flavor powder</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🔥
+        </div>
+        <h4>Barbeque Seasoning</h4>
+        <p>Smoky BBQ flavor blend</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌶️
+        </div>
+        <h4>Schezwan Seasoning</h4>
+        <p>Spicy Chinese seasoning mix</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌮
+        </div>
+        <h4>Mexican Seasoning</h4>
+        <p>Authentic Mexican spice blend</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍕
+        </div>
+        <h4>Pizza Seasoning</h4>
+        <p>Italian herbs for perfect pizza</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🔥
+        </div>
+        <h4>Peri Peri Seasoning</h4>
+        <p>Fiery African spice blend</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🧀
+        </div>
+        <h4>Cheese Peri Peri Seasoning</h4>
+        <p>Creamy cheese with spicy peri peri</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🧅
+        </div>
+        <h4>Cream &amp; Onion Seasoning</h4>
+        <p>Classic snack flavor combination</p>
+       </div>
+      </div>
+     </div><!-- Seeds & Spice Powders -->
+     <div class="category-content" id="seeds">
+      <div class="category-header">
+       <h3>Seeds &amp; Spice Powders</h3>
+       <p>Essential spices and nutritious seeds for healthy cooking</p>
+      </div>
+      <div class="products-grid">
+       <div class="product-item">
+        <div class="product-icon">
+         🌶️
+        </div>
+        <h4>Red Chili Flakes &amp; Powder</h4>
+        <p>Fiery red chilies for heat and flavor</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌾
+        </div>
+        <h4>Coriander Seeds &amp; Powder</h4>
+        <p>Essential spice for Indian cooking</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌾
+        </div>
+        <h4>Cumin Seeds &amp; Powder</h4>
+        <p>Earthy cumin for authentic taste</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🟡
+        </div>
+        <h4>Turmeric Powder</h4>
+        <p>Golden turmeric for health and color</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌱
+        </div>
+        <h4>Chia Seeds / Basil Seeds</h4>
+        <p>Superfood seeds for nutrition</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌻
+        </div>
+        <h4>Pumpkin Seeds / Sunflower Seeds</h4>
+        <p>Healthy snacking seeds</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌾
+        </div>
+        <h4>Fennel Seeds / Yellow Mustard</h4>
+        <p>Aromatic seeds for tempering</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         ⚫
+        </div>
+        <h4>Pepper Powder / Bay Leaves</h4>
+        <p>Classic spices for seasoning</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🟡
+        </div>
+        <h4>Besan Flour</h4>
+        <p>Fine gram flour for traditional Indian sweets and snacks</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍬
+        </div>
+        <h4>Sugar Powder</h4>
+        <p>Pure refined sugar for all your cooking and baking needs</p>
+       </div>
+      </div>
+     </div><!-- Organic Products -->
+     <div class="category-content" id="organic">
+      <div class="category-header">
+       <h3>Organic Products</h3>
+       <p>Eco-friendly and sustainable products for conscious living</p>
+      </div>
+      <div class="products-grid">
+       <div class="product-item">
+        <div class="product-icon">
+         🌱
+        </div>
+        <h4>Organic Cow Dung</h4>
+        <p>Premium organic fertilizer for healthy soil</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍃
+        </div>
+        <h4>Leaf Plates</h4>
+        <p>Biodegradable plates from natural leaves</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🥄
+        </div>
+        <h4>Leaf Bowls</h4>
+        <p>Eco-friendly bowls for sustainable dining</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌿
+        </div>
+        <h4>Organic Compost</h4>
+        <p>Natural compost for garden enrichment</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍯
+        </div>
+        <h4>Wildflower Honey</h4>
+        <p>Pure raw honey from diverse wildflower meadows</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌻
+        </div>
+        <h4>Sunflower Honey</h4>
+        <p>Golden honey with mild floral taste</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍯
+        </div>
+        <h4>Acacia Honey</h4>
+        <p>Light, delicate honey that stays liquid longer</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍯
+        </div>
+        <h4>Eucalyptus Honey</h4>
+        <p>Medicinal honey with distinctive herbal flavor</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍯
+        </div>
+        <h4>Litchi Honey</h4>
+        <p>Exotic floral honey with subtle fruit notes</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🌲
+        </div>
+        <h4>Forest Honey</h4>
+        <p>Dark, rich honey from deep forest flowers</p>
+       </div>
+       <div class="product-item">
+        <div class="product-icon">
+         🍯
+        </div>
+        <h4>Mustard Honey</h4>
+        <p>Creamy textured honey with bold, spicy undertones</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="about">
+   <div class="container">
+    <div class="about-content">
+     <div class="about-text">
+      <h2>About Naturix Foods</h2>
+      <p>Founded by two passionate software engineers turned food innovators, Naturix Foods emerged from a shared vision: to simplify daily nutrition with clean, organic solutions that don't compromise on taste or aroma. What began as a bold pivot from code to cuisine has blossomed into a thriving enterprise, delivering premium organic and processed foods that nourish body and soul.</p>
+      <p>We craft every product with unwavering commitment to purity—sourcing the finest natural ingredients to create convenient meals and snacks for modern lives. Our range stands out not just for its health benefits, but for the irresistible flavors and scents that turn everyday eating into a delight.</p>
+      <p>Today, Naturix Foods proudly supplies the domestic market through robust B2B partnerships while gearing up for an exciting B2C launch in the coming months. With a growing footprint in exports, we're bridging global tables with the essence of clean, wholesome goodness. Join us as we redefine convenience, one inspired bite at a time.</p>
+     </div>
+     <div class="about-visual">
+      <div class="nature-illustration">
+       🌿🌱🍃
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Values Section -->
+  <section class="values">
+   <div class="container">
+    <h2 class="section-title">Our Values</h2>
+    <div class="values-grid">
+     <div class="value-item">
+      <div class="value-icon">
+       🌱
+      </div>
+      <h3>100% Natural</h3>
+      <p>All our products are sourced naturally without any artificial additives or chemicals.</p>
+     </div>
+     <div class="value-item">
+      <div class="value-icon">
+       ♻️
+      </div>
+      <h3>Eco-Friendly</h3>
+      <p>We prioritize sustainable practices that protect our environment for future generations.</p>
+     </div>
+     <div class="value-item">
+      <div class="value-icon">
+       🏆
+      </div>
+      <h3>Premium Quality</h3>
+      <p>Every product undergoes strict quality checks to ensure you get the best nature has to offer.</p>
+     </div>
+     <div class="value-item">
+      <div class="value-icon">
+       🇮🇳
+      </div>
+      <h3>Authentic Indian</h3>
+      <p>Bringing you the true taste of India with traditional methods and authentic flavors.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section id="contact" class="contact">
+   <div class="container">
+    <h2 class="section-title" style="color: #E2B93F;">Get In Touch</h2>
+    <div class="contact-content">
+     <div class="contact-info">
+      <h3>Main Contact</h3>
+     </div>
+     <div class="contact-grid">
+      <div class="contact-item">
+       <div class="contact-icon">
+        📧
+       </div>
+       <div><strong>Email</strong> <a href="mailto:info@naturixfoods.in">info@naturixfoods.in</a>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📱
+       </div>
+       <div><strong>Phone</strong> <a href="tel:+919974981058">9974981058</a> / <a href="tel:+917359075835">7359075835</a>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📍
+       </div>
+       <div><strong>Address</strong> S K Enterprise<br>
+         C/O CORPHUB RENTALS LLP<br>
+         Desk No: 629-D B-Wing<br>
+         6th Floor, B.D. Patel House<br>
+         Naranpura, Ahmedabad - 380009
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        ⏰
+       </div>
+       <div><strong>Business Hours</strong> Mon - Sat: 9:00 AM - 6:00 PM
+       </div>
+      </div>
+     </div><!-- Team Members Section -->
+     <h3 class="team-section-title">Team Members</h3>
+     <div class="team-grid">
+      <div class="team-member">
+       <div class="team-member-icon">
+        👤
+       </div>
+       <h4>Shrey Shah</h4>
+       <p>📱 <a href="tel:+919974981058">9974981058</a></p>
+       <p>📧 <a href="mailto:shrey.shah@naturixfoods.in">shrey.shah@naturixfoods.in</a></p>
+      </div>
+      <div class="team-member">
+       <div class="team-member-icon">
+        👤
+       </div>
+       <h4>Ravi Khoyani</h4>
+       <p>📱 <a href="tel:+917359075835">7359075835</a></p>
+       <p>📧 <a href="mailto:ravi.khoyani@naturixfoods.in">ravi.khoyani@naturixfoods.in</a></p>
+      </div>
+     </div><!-- Certifications & Licenses Section -->
+     <div class="certifications-box">
+      <p>🏆 Proud Certifications &amp; Licenses</p>
+      <div class="certifications-text">
+       ✅ FSSAI Licensed | ✅ APEDA Registered | ✅ Spice Board Certified | ✅ Halal Certified | ✅ IEC Code Holder
+      </div>
+      <div class="exporter-badge">
+       🌍 Proud Exporter Since 2025
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="footer">
+   <div class="footer-content">
+    <div class="footer-logo">
+     Naturix Foods
+    </div>
+    <div class="footer-tagline">
+     "Earthy Minimalist • Taste of India"
+    </div>
+    <div class="social-links"><a href="#" class="social-link" target="_blank" rel="noopener noreferrer">📘</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">📷</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">🐦</a> <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">💼</a>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2025 S K Enterprise. All rights reserved. | Bringing Nature to Your Table</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(31, 61, 44, 0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(31, 61, 44, 0.1)';
+            }
+        });
+
+        // Product Category Navigation
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all category content
+                document.querySelectorAll('.category-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show selected category content
+                document.getElementById(category).classList.add('active');
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.product-item, .value-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cdcfe9292f68ef4',t:'MTc3MTA3NjYwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
